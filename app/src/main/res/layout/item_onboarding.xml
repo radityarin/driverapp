@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:orientation="vertical"
+    android:paddingVertical="@dimen/layout_margin_16">
+
+    <ImageView
+        android:id="@+id/ivDrawableOnBoarding"
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:contentDescription="Image"
+        android:src="@drawable/ic_onboarding_1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/layout_margin_16"
+        android:layout_marginTop="@dimen/layout_margin_32"
+        android:fontFamily="@font/intersemibold"
+        android:text="RekomendasiKU"
+        android:textColor="@color/primary" />
+
+    <TextView
+        android:id="@+id/tvTitleOnBoarding"
+        style="@style/heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/layout_margin_16"
+        android:layout_marginTop="@dimen/layout_margin_8"
+        tools:text="Potensi UMKM" />
+
+    <TextView
+        android:id="@+id/tvContentOnBoarding"
+        style="@style/medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/layout_margin_16"
+        android:layout_marginTop="@dimen/layout_margin_8"
+        tools:text="UMKM merupakan salah satu sektor yang berkontribusi besar terhadap Produk Domestik Regional Bruto. Potensi UMKM yang begitu besar belum akan maksimal jika kinerjanya masih buruk." />
+
+</LinearLayout>

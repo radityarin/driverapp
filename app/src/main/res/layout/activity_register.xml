@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.login.LoginActivity">
+
+    <TextView
+        android:id="@+id/tvBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/layout_margin_16"
+        android:background="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv2"
+        style="@style/heading"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/layout_margin_16"
+        android:layout_marginTop="@dimen/layout_margin_8"
+        android:text="Buat Akun"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvBack" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/llBottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv3"
+                style="@style/medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_32"
+                android:text="Nama Lengkap"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv2" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etNamaLengkap"
+                style="@style/myEditText"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_4"
+                android:hint=""
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv3" />
+
+            <TextView
+                android:id="@+id/tv4"
+                style="@style/medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_16"
+                android:text="Jenis Kelamin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etNoHP" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etJenisKelamin"
+                style="@style/myEditText"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv4" />
+
+            <TextView
+                android:id="@+id/tv5"
+                style="@style/medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_16"
+                android:text="Pekerjaan"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etNoHP" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etPekerjaan"
+                style="@style/myEditText"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv4" />
+
+            <TextView
+                android:id="@+id/tv6"
+                style="@style/medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_16"
+                android:text="Nama usaha"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etNoHP" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etNamaUsaha"
+                style="@style/myEditText"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv4" />
+
+            <TextView
+                android:id="@+id/tv7"
+                style="@style/medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_16"
+                android:text="Alamat"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etNoHP" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etAlamat"
+                style="@style/myEditText"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv4" />
+
+            <TextView
+                android:id="@+id/tv8"
+                style="@style/medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_16"
+                android:text="No. HP"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etNoHP" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etNoHP"
+                style="@style/myEditText"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv4" />
+
+            <TextView
+                android:id="@+id/tv9"
+                style="@style/medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_16"
+                android:text="Pengalaman Usaha (tahun)"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etNoHP" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etPengalamanUsaha"
+                style="@style/myEditText"
+                android:layout_width="50dp"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv4" />
+
+            <TextView
+                android:id="@+id/tv10"
+                style="@style/medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_16"
+                android:text="Jenis Produk yang dijual"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etNoHP" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etJenisProduk"
+                style="@style/myEditText"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv4" />
+
+            <TextView
+                android:id="@+id/tv11"
+                style="@style/medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_16"
+                android:text="Buat kata sandi"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etNoHP" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etKataSandi"
+                style="@style/myEditText"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv4" />
+
+            <TextView
+                android:id="@+id/tv12"
+                style="@style/medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_16"
+                android:text="Konfirmasi kata sandi"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etNoHP" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etKonfirmasiSandi"
+                style="@style/myEditText"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv4" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginVertical="@dimen/layout_margin_16"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp" />
+
+                <TextView
+                    style="@style/regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Saya menyetujui "
+                    android:textSize="10sp" />
+
+                <TextView
+                    style="@style/heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="syarat dan ketentuan "
+                    android:textColor="@color/primary"
+                    android:textSize="10sp" />
+
+                <TextView
+                    style="@style/regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="serta "
+                    android:textSize="10sp" />
+
+                <TextView
+                    style="@style/heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="aturan keamanan"
+                    android:textColor="@color/primary"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/llBottom"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/layout_margin_16"
+        android:paddingTop="@dimen/layout_margin_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tvDisabled"
+            style="@style/primaryButtonsDisabled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buat Akun" />
+
+        <TextView
+            android:id="@+id/tvEnabled"
+            style="@style/primaryButtonsDefault"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buat Akun"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/layout_margin_8"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sudah memiliki akun? "
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tvMasuk"
+                style="@style/heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Masuk"
+                android:textColor="@color/primary"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

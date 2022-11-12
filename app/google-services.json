@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "967588372874",
+    "project_id": "keberlanjutan-umkm-bsc",
+    "storage_bucket": "keberlanjutan-umkm-bsc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:967588372874:android:d76223322cc19a106a2873",
+        "android_client_info": {
+          "package_name": "com.ftp.keberlanjutanumkmbsc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "967588372874-12mtht4gn2b90d9coejmh0o1m176vtj1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ftp.keberlanjutanumkmbsc",
+            "certificate_hash": "9c783894e61ed935da08bdd7a59bed7cf92362da"
+          }
+        },
+        {
+          "client_id": "967588372874-hm8u07imhu2pm14sp2hf8l8js3im1ed9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHLAflgsu6vRxrmDBwhtw7-k3NWoYeGNw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "967588372874-hm8u07imhu2pm14sp2hf8l8js3im1ed9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

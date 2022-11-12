@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.login.LoginActivity">
+
+    <TextView
+        android:id="@+id/tvBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/layout_margin_16"
+        android:background="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv2"
+        style="@style/heading"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/layout_margin_16"
+        android:layout_marginTop="@dimen/layout_margin_8"
+        android:text="Selamat Datang Kembali"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvBack" />
+
+    <TextView
+        android:id="@+id/tv3"
+        style="@style/medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/layout_margin_16"
+        android:layout_marginTop="@dimen/layout_margin_32"
+        android:text="No. HP"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv2" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etNoHP"
+        style="@style/myEditText"
+        android:layout_marginHorizontal="@dimen/layout_margin_16"
+        android:layout_marginTop="@dimen/layout_margin_4"
+        android:hint="Masukkan nomor handphone terdaftar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv3" />
+
+    <TextView
+        android:id="@+id/tv4"
+        style="@style/medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/layout_margin_16"
+        android:layout_marginTop="@dimen/layout_margin_16"
+        android:text="Buat kata sandi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etNoHP" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etSandi"
+        style="@style/myEditText"
+        android:layout_marginHorizontal="@dimen/layout_margin_16"
+        android:layout_marginTop="@dimen/layout_margin_4"
+        android:inputType="textPassword"
+        android:hint="Minimal 8 karakter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv4" />
+
+
+    <RelativeLayout
+        android:id="@+id/llBottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_bottom_navigation_stepper"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="@dimen/layout_margin_16"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tvDisabled"
+            style="@style/primaryButtonsDisabled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Masuk" />
+
+        <TextView
+            android:id="@+id/tvEnabled"
+            style="@style/primaryButtonsDefault"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Masuk"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
