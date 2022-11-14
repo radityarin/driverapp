@@ -20,7 +20,7 @@
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/ic_onboarding_1" />
+        android:src="@drawable/ic_popup_confirmation" />
 
     <TextView
         style="@style/heading"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/layout_margin_8"
-        android:text="Berhasil" />
+        android:text="Konfirmasi" />
 
     <TextView
         style="@style/medium"
@@ -36,20 +36,41 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginHorizontal="@dimen/layout_margin_16"
-        android:text="Selamat! Anda berhasil membuat akun.\nAyo, jelajahi StrategiKu!"
+        android:layout_marginTop="@dimen/layout_margin_8"
+        android:text="Apakah kamu yakin dengan perubahan\ndata yang kamu isikan? "
         android:textAlignment="center"
         android:textColor="@color/gray_text" />
 
-    <TextView
-        android:id="@+id/tvOk"
-        style="@style/primaryButtonsDefault"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginHorizontal="@dimen/layout_margin_16"
         android:layout_marginTop="@dimen/layout_margin_32"
-        android:text="Ok"
-        android:textAlignment="center" />
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/layout_margin_16">
+
+        <TextView
+            android:id="@+id/tvOk"
+            style="@style/primaryButtonsDefault"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginEnd="@dimen/layout_margin_4"
+            android:layout_weight="1"
+            android:text="Iya"
+            android:textAlignment="center" />
 
 
+        <TextView
+            android:id="@+id/tvCancel"
+            style="@style/redButtonsDefault"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/layout_margin_4"
+            android:layout_weight="1"
+            android:text="Tidak"
+            android:textAlignment="center" />
+
+    </LinearLayout>
 </LinearLayout>

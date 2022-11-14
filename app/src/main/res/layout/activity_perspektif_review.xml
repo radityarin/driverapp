@@ -1,0 +1,861 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".presentation.home.users.ui.home.questioner.pertama.PerspektifKeuanganActivity">
+
+    <include
+        android:id="@+id/appBarLayout"
+        layout="@layout/layout_app_bar_white" />
+
+    <ImageView
+        android:id="@+id/ivStep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appBarLayout"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_step_7_review" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/llBottom"
+        android:layout_below="@id/ivStep">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvPerspektifKeuangan"
+                style="@style/semibold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/layout_margin_16"
+                android:text="Perspektif Keuangan"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                app:drawableEndCompat="@drawable/ic_dropdown_down" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:id="@+id/llPerspektifKeuangan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total pendapatan usaha dalam sebulan" />
+
+                    <TextView
+                        android:id="@+id/tvKeuangan1"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total biaya usaha dalam sebulan" />
+
+                    <TextView
+                        android:id="@+id/tvKeuangan2"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Volume produksi pada periode saat ini" />
+
+                    <TextView
+                        android:id="@+id/tvKeuangan3"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Volume produksi pada periode sebelumnya" />
+
+                    <TextView
+                        android:id="@+id/tvKeuangan4"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total penjualan pada periode saat ini" />
+
+                    <TextView
+                        android:id="@+id/tvKeuangan5"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total penjualan pada periode sebelumnya" />
+
+                    <TextView
+                        android:id="@+id/tvKeuangan6"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvPerspektifPelanggan"
+                style="@style/semibold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/layout_margin_16"
+                android:text="Perspektif Pelanggan"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                app:drawableEndCompat="@drawable/ic_dropdown_down" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:id="@+id/llPerspektifPelanggan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total konsumen terlayani" />
+
+                    <TextView
+                        android:id="@+id/tvPelanggan1"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total keluhan konsumen" />
+
+                    <TextView
+                        android:id="@+id/tvPelanggan2"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total konsumen lama dalam 3 bulan terakhir" />
+
+                    <TextView
+                        android:id="@+id/tvPelanggan3"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total seluruh konsumen dalam 3 bulan terakhir" />
+
+                    <TextView
+                        android:id="@+id/tvPelanggan4"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvPerspektifPembelajaran"
+                style="@style/semibold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/layout_margin_16"
+                android:text="Perspektif Pembelajaran dan Pertumbuhan"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                app:drawableEndCompat="@drawable/ic_dropdown_down" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:id="@+id/llPerspektifPembelajaran"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total seluruh karyawan " />
+
+                    <TextView
+                        android:id="@+id/tvPembelajaran1"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total karyawan yang mengikuti pelatihan" />
+
+                    <TextView
+                        android:id="@+id/tvPembelajaran2"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total keluhan konsumen terlayani" />
+
+                    <TextView
+                        android:id="@+id/tvPembelajaran3"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total keluhan karyawan terlayani" />
+
+                    <TextView
+                        android:id="@+id/tvPembelajaran4"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Hasil kerja karyawan" />
+
+                    <TextView
+                        android:id="@+id/tvPembelajaran5"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total jam kerja karyawan" />
+
+                    <TextView
+                        android:id="@+id/tvPembelajaran6"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvPerspektifProsesBisnis"
+                style="@style/semibold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/layout_margin_16"
+                android:text="Perspektif Proses Bisnis Internal"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                app:drawableEndCompat="@drawable/ic_dropdown_down" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:id="@+id/llPerspektifProsesBisnis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total produk yang baik " />
+
+                    <TextView
+                        android:id="@+id/tvProsesBisnis1"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total produk" />
+
+                    <TextView
+                        android:id="@+id/tvProsesBisnis2"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total program terlaksana" />
+
+                    <TextView
+                        android:id="@+id/tvProsesBisnis3"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total rencana program" />
+
+                    <TextView
+                        android:id="@+id/tvProsesBisnis4"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvPerspektifSosial"
+                style="@style/semibold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/layout_margin_16"
+                android:text="Perspektif Sosial"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                app:drawableEndCompat="@drawable/ic_dropdown_down" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:id="@+id/llPerspektifSosial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total karyawan dari masyarkat sekitar" />
+
+                    <TextView
+                        android:id="@+id/tvSosial1"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total seluruh karyawan " />
+
+                    <TextView
+                        android:id="@+id/tvSosial2"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvPerspektifLingkungan"
+                style="@style/semibold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/layout_margin_16"
+                android:text="Perspektif Lingkungan"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                app:drawableEndCompat="@drawable/ic_dropdown_down" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:id="@+id/llPerspektifLingkungan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total produk daur ulang " />
+
+                    <TextView
+                        android:id="@+id/tvLingkungan1"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total seluruh produk" />
+
+                    <TextView
+                        android:id="@+id/tvLingkungan2"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total limbah daur ulang" />
+
+                    <TextView
+                        android:id="@+id/tvLingkungan3"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total limbah yang dihasilkan" />
+
+                    <TextView
+                        android:id="@+id/tvLingkungan4"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:id="@+id/llBottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_bottom_navigation_stepper"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/layout_margin_16">
+
+        <TextView
+            android:id="@+id/tvEnabled"
+            style="@style/primaryButtonsDefault"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Lihat Hasil" />
+
+    </RelativeLayout>
+</RelativeLayout>

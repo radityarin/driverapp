@@ -71,13 +71,15 @@
         app:layout_constraintTop_toBottomOf="@id/tv4" />
 
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/llBottom"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_bottom_navigation_stepper"
+        android:layout_height="96dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginHorizontal="@dimen/layout_margin_16"
+        android:background="@color/white"
         android:orientation="vertical"
+        android:paddingHorizontal="@dimen/layout_margin_16"
+        android:paddingTop="@dimen/layout_margin_16"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -97,7 +99,31 @@
             android:text="Masuk"
             android:visibility="gone" />
 
-    </RelativeLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/layout_margin_8"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Belum memiliki akun? "
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/tvDaftar"
+                style="@style/heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Daftar"
+                android:textColor="@color/primary"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

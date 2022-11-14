@@ -4,7 +4,9 @@ import android.view.View
 import com.ftp.keberlanjutanumkmbsc.databinding.ActivityLoginBinding
 import com.ftp.keberlanjutanumkmbsc.presentation.base.BaseActivity
 import com.ftp.keberlanjutanumkmbsc.utils.goToHome
+import com.ftp.keberlanjutanumkmbsc.utils.goToRegister
 import com.ftp.keberlanjutanumkmbsc.utils.setEditTextAndButtonListener
+import com.ftp.keberlanjutanumkmbsc.utils.showResultDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : BaseActivity() {
@@ -24,7 +26,7 @@ class LoginActivity : BaseActivity() {
             if (it) {
                 goToHome()
             } else {
-
+                showResultDialog(false)
             }
         }
     }
@@ -39,6 +41,9 @@ class LoginActivity : BaseActivity() {
             }
             tvBack.setOnClickListener {
                 onBackPressed()
+            }
+            tvDaftar.setOnClickListener {
+                goToRegister()
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.ftp.keberlanjutanumkmbsc.data.source
 
+import com.ftp.keberlanjutanumkmbsc.data.logic.Kuesioner
 import com.ftp.keberlanjutanumkmbsc.data.source.remote.RemoteDataSource
 import com.ftp.keberlanjutanumkmbsc.domain.model.User
 import com.ftp.keberlanjutanumkmbsc.domain.repositories.AppRepository
@@ -22,4 +23,11 @@ class AppRepositoryImpl(
     override fun getUserWithIDUser(idUser: String): Flow<Resource<User>> =
         remoteDataSource.getUserWithIDUser(idUser = idUser)
 
+    override fun addQuestioner(questioner: Kuesioner) =
+        remoteDataSource.addQuestioner(questioner)
+
+    override fun getAllQuestioner() = remoteDataSource.getAllQuestioner()
+
+    override fun getListQuestionerWithSpecificID(idUser: String) =
+        remoteDataSource.getListQuestionerWithSpecificID(idUser)
 }

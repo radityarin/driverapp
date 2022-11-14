@@ -13,14 +13,51 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KeberlanjutanUMKMBSC">
         <activity
-            android:name=".presentation.register.RegisterActivity"
+            android:name=".presentation.home.users.ui.home.questioner.result.ResultActivity"
             android:exported="false" />
+        <activity
+            android:name=".presentation.home.users.ui.home.questioner.review.PerspektifReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.home.users.ui.home.questioner.pertama.PerspektifKeuanganActivity"
+            android:exported="false"
+            android:theme="@style/Theme.KeberlanjutanUMKMBSCWhite" />
+        <activity
+            android:name=".presentation.home.users.ui.home.questioner.kedua.PerspektifPelangganActivity"
+            android:exported="false"
+            android:theme="@style/Theme.KeberlanjutanUMKMBSCWhite" />
+        <activity
+            android:name=".presentation.home.users.ui.home.questioner.ketiga.PerspektifPembelajaranActivity"
+            android:exported="false"
+            android:theme="@style/Theme.KeberlanjutanUMKMBSCWhite" />
+        <activity
+            android:name=".presentation.home.users.ui.home.questioner.keempat.PerspektifBisnisActivity"
+            android:exported="false"
+            android:theme="@style/Theme.KeberlanjutanUMKMBSCWhite" />
+        <activity
+            android:name=".presentation.home.users.ui.home.questioner.kelima.PerspektifSosialActivity"
+            android:exported="false"
+            android:theme="@style/Theme.KeberlanjutanUMKMBSCWhite" />
+        <activity
+            android:name=".presentation.home.users.ui.home.questioner.keenam.PerspektifLingkunganActivity"
+            android:exported="false"
+            android:theme="@style/Theme.KeberlanjutanUMKMBSCWhite" />
+        <activity
+            android:name=".presentation.home.users.UserMainActivity"
+            android:exported="false"
+            android:label="@string/title_activity_user_main" />
+        <activity
+            android:name=".presentation.register.RegisterActivity"
+            android:exported="false"
+            android:theme="@style/Theme.KeberlanjutanUMKMBSCWhite" />
         <activity
             android:name=".presentation.login.LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.KeberlanjutanUMKMBSCWhite" />
         <activity
             android:name=".presentation.onboarding.OnBoardingActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.KeberlanjutanUMKMBSCWhite">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,7 +66,8 @@
         </activity>
         <activity
             android:name=".presentation.landing.LandingActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.KeberlanjutanUMKMBSCWhite" />
     </application>
 
 </manifest>

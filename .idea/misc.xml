@@ -3,21 +3,64 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/bg_toast_radius_8.xml" value="0.2165" />
         <entry key="app/src/main/res/drawable/background_border_rounded_primary_buttons_default.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/background_border_rounded_primary_buttons_default_negative.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/background_border_rounded_primary_buttons_default_red.xml" value="0.1255" />
         <entry key="app/src/main/res/drawable/background_border_rounded_primary_buttons_default_white.xml" value="0.242" />
         <entry key="app/src/main/res/drawable/background_border_rounded_primary_buttons_disabled.xml" value="0.117" />
+        <entry key="app/src/main/res/drawable/background_result_questioner.xml" value="0.1255" />
         <entry key="app/src/main/res/drawable/bg_round_top.xml" value="0.135" />
+        <entry key="app/src/main/res/drawable/bg_toast.xml" value="0.2165" />
+        <entry key="app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.1135" />
+        <entry key="app/src/main/res/drawable/ic_baseline_history_24.xml" value="0.108" />
+        <entry key="app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1135" />
         <entry key="app/src/main/res/drawable/ic_circle_not_selected.xml" value="0.242" />
         <entry key="app/src/main/res/drawable/ic_circle_selected.xml" value="0.242" />
+        <entry key="app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.108" />
+        <entry key="app/src/main/res/drawable/ic_history_disabled.xml" value="0.108" />
+        <entry key="app/src/main/res/drawable/ic_history_primary.xml" value="0.108" />
+        <entry key="app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.108" />
+        <entry key="app/src/main/res/drawable/ic_home_disabled.xml" value="0.108" />
+        <entry key="app/src/main/res/drawable/ic_person_disabled.xml" value="0.108" />
+        <entry key="app/src/main/res/drawable/ic_person_primary.xml" value="0.108" />
+        <entry key="app/src/main/res/drawable/ic_step_1.xml" value="0.1875" />
+        <entry key="app/src/main/res/drawable/ic_step_2.xml" value="0.228" />
+        <entry key="app/src/main/res/drawable/ic_step_3.xml" value="0.228" />
+        <entry key="app/src/main/res/drawable/ic_step_4.xml" value="0.228" />
+        <entry key="app/src/main/res/drawable/ic_step_5.xml" value="0.228" />
         <entry key="app/src/main/res/drawable/selector_edit_text.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/selector_history.xml" value="0.108" />
+        <entry key="app/src/main/res/drawable/selector_home.xml" value="0.108" />
+        <entry key="app/src/main/res/drawable/selector_person.xml" value="0.108" />
         <entry key="app/src/main/res/layout/activity_landing.xml" value="0.29375" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_on_boarding.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_perspektif_bisnis.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_perspektif_keuangan.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_perspektif_lingkungan.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_perspektif_pelanggan.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_perspektif_pembelajaran.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_perspektif_review.xml" value="0.301171875" />
+        <entry key="app/src/main/res/layout/activity_perspektif_sosial.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.29375" />
+        <entry key="app/src/main/res/layout/activity_result.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_user_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/dialog_confirmation_bottom.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/dialog_loading.xml" value="0.23680555555555555" />
+        <entry key="app/src/main/res/layout/dialog_questioner_result_bottom.xml" value="0.2722222222222222" />
         <entry key="app/src/main/res/layout/dialog_result_bottom.xml" value="0.23680555555555555" />
+        <entry key="app/src/main/res/layout/fragment_account.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_history.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.14166666666666666" />
         <entry key="app/src/main/res/layout/item_onboarding.xml" value="0.36354166666666665" />
+        <entry key="app/src/main/res/layout/item_riwayat.xml" value="0.32205128205128203" />
+        <entry key="app/src/main/res/layout/item_riwayat_kuesioner.xml" value="0.32205128205128203" />
+        <entry key="app/src/main/res/layout/item_strategi.xml" value="0.34102564102564104" />
+        <entry key="app/src/main/res/layout/layout_app_bar_white.xml" value="0.14166666666666666" />
+        <entry key="app/src/main/res/layout/layout_custom_toast.xml" value="0.34102564102564104" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.14166666666666666" />
       </map>
     </option>
   </component>

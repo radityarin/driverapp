@@ -4,14 +4,14 @@ import android.view.View
 import com.ftp.keberlanjutanumkmbsc.R
 import com.ftp.keberlanjutanumkmbsc.databinding.ActivityRegisterBinding
 import com.ftp.keberlanjutanumkmbsc.presentation.base.BaseActivity
-import com.ftp.keberlanjutanumkmbsc.presentation.register.dialog.ResultDialog
+import com.ftp.keberlanjutanumkmbsc.presentation.register.dialog.RegisterResultDialog
 import com.ftp.keberlanjutanumkmbsc.utils.goToHome
 import com.ftp.keberlanjutanumkmbsc.utils.goToLogin
-import com.ftp.keberlanjutanumkmbsc.utils.setEditTextAndButtonAndCheckBoxListener
+import com.ftp.keberlanjutanumkmbsc.utils.setEditTextAndButtonAndCheckBoxAndSpinnerListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class RegisterActivity : BaseActivity(), ResultDialog.OkListener {
+class RegisterActivity : BaseActivity(), RegisterResultDialog.OkListener {
 
     private var _binding: ActivityRegisterBinding? = null
     private val binding get() = _binding!!
@@ -34,13 +34,13 @@ class RegisterActivity : BaseActivity(), ResultDialog.OkListener {
             tvEnabled.setOnClickListener {
                 registerViewModel.register(
                     namaLengkap = etNamaLengkap.text.toString(),
-                    jenisKelamin = etJenisKelamin.text.toString(),
+                    jenisKelamin = spnJenisKelamin.selectedItem.toString(),
                     pekerjaan = etPekerjaan.text.toString(),
                     namaUsaha = etAlamat.text.toString(),
-                    alamat = etAlamat.text.toString(),
+                    alamat = etNamaUsaha.text.toString(),
                     nomorHP = etNoHP.text.toString(),
                     pengalamanUsahaTahun = etPengalamanUsaha.text.toString(),
-                    jenisProdukYangDijual = etJenisKelamin.text.toString(),
+                    jenisProdukYangDijual = etJenisProduk.text.toString(),
                     kataSandi = etKataSandi.text.toString(),
                     konfirmasiKataSandi = etKonfirmasiSandi.text.toString()
                 )
@@ -56,7 +56,7 @@ class RegisterActivity : BaseActivity(), ResultDialog.OkListener {
 
     override fun initEditTextListener() {
         with(binding) {
-            setEditTextAndButtonAndCheckBoxListener(
+            setEditTextAndButtonAndCheckBoxAndSpinnerListener(
                 listOf(
                     etNamaLengkap,
                     etPekerjaan,
@@ -67,20 +67,21 @@ class RegisterActivity : BaseActivity(), ResultDialog.OkListener {
                     etJenisProduk,
                     etKataSandi,
                     etKonfirmasiSandi
-                ), checkBox, tvEnabled, tvDisabled
+                ), checkBox,
+                listOf(spnJenisKelamin), tvEnabled, tvDisabled
             )
         }
     }
 
     private fun showResultDialog(isSuccess: Boolean) {
-        ResultDialog(
+        RegisterResultDialog(
             isSuccess = isSuccess
         ).apply {
             setStyle(
                 BottomSheetDialogFragment.STYLE_NORMAL,
                 R.style.BaseBottomSheetDialogTheme
             )
-            show(supportFragmentManager, ResultDialog.TAG)
+            show(supportFragmentManager, RegisterResultDialog.TAG)
         }
     }
 

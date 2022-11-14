@@ -2,13 +2,19 @@ package com.ftp.keberlanjutanumkmbsc.data.logic
 
 class BalanceScoreCard {
 
-    val kuesioner = Kuesioner()
     val perspektifKeuangan = Perspektif()
     val perspektifKepuasanPelanggan = Perspektif()
     val perspektifPembelajaranDanPertumbuhan = Perspektif()
-    val perspektifProsesBisnisInternal = Perspektif()
+    val perspektifProsesBisnisDoubleernal = Perspektif()
     val perspektifSosial = Perspektif()
     val perspektifLingkungan = Perspektif()
+
+    var kategoriPoor = "Poor"
+    var kategoriMarginal = "Marginal"
+    var kategoriAverage = "Average"
+    var kategoriGood = "Good"
+    var kategoriExcellent = "Excellent"
+    var kategoriNotFound = "Not found"
 
     init {
         perspektifKeuangan.apply {
@@ -23,7 +29,7 @@ class BalanceScoreCard {
             namaPerspektif = Perspektif.PEMBELAJARAN_DAN_PERTUMBUHAN
             bobotPerspektif = 10.0
         }
-        perspektifProsesBisnisInternal.apply {
+        perspektifProsesBisnisDoubleernal.apply {
             namaPerspektif = Perspektif.PROSES_BISNIS_INTERNAL
             bobotPerspektif = 15.0
         }
@@ -46,29 +52,46 @@ class BalanceScoreCard {
                 60.0
             }
             actual < standard -> {
-                40.0
+                30.0
             }
             else -> {
-                40.0
+                30.0
             }
         }
     }
 
-    private fun getKategoriSustainibility(score: Double): String {
+    fun getKategoriSustainibility(score: Double): String {
         return when {
             score <= 40 -> {
-                "Poor"
+                kategoriPoor
             }
             score > 40 && score <= 50 -> {
-                "Marginal"
+                kategoriMarginal
             }
             score > 50 && score <= 70 -> {
-                "Average"
+                kategoriAverage
             }
             score > 70 && score <= 90 -> {
-                "Good"
+                kategoriGood
             }
             score > 90 && score <= 100 -> {
+                kategoriExcellent
+            }
+            else -> {
+                kategoriNotFound
+            }
+        }
+    }
+
+    private fun getTingkatKinerjaKategori(actual: Double, standard: Double): String {
+        return when (getTingkatKinerja(actual, standard)) {
+            30.0 -> {
+                "Weak"
+            }
+            60.0 -> {
+                "Good"
+            }
+            90.0 -> {
                 "Excellent"
             }
             else -> {
@@ -80,16 +103,25 @@ class BalanceScoreCard {
     private fun calculateIndikator(
         calculation: Double,
         standardPerformance: Double,
-        indikator: Indikator
+        indikator: Indikator,
+        calculateName: String = ""
     ): Indikator {
         val actualPerformance = calculation * 100.0
         val nilaiTingkatKinerja = getTingkatKinerja(actualPerformance, standardPerformance)
+        val nilaiTingkatKinerjaKategori =
+            getTingkatKinerjaKategori(actualPerformance, standardPerformance)
         val result =
-            indikator.perspektif.bobotPerspektif * indikator.bobotIndikator * nilaiTingkatKinerja
+            (indikator.perspektif.bobotPerspektif / 100) * (indikator.bobotIndikator / 100) * nilaiTingkatKinerja
+        println("UMKMBSC-ActualPerformance$calculateName $actualPerformance")
+        println("UMKMBSC-StandardPerformance$calculateName $standardPerformance")
+        println("UMKMBSC-nilaiTingkatKinerja$calculateName $nilaiTingkatKinerja")
+        println("UMKMBSC-nilaiTingkatKinerjaKategori$calculateName $nilaiTingkatKinerjaKategori")
+        println("UMKMBSC-SistemHasil$calculateName ${indikator.perspektif.bobotPerspektif / 100} * ${indikator.bobotIndikator / 100} * $nilaiTingkatKinerja = $result")
         indikator.apply {
             kinerjaSebenarnya = actualPerformance
             kinerjaStandar = standardPerformance
             tingkatKinerja = nilaiTingkatKinerja
+            tingkatKinerjaKategori = nilaiTingkatKinerjaKategori
             hasil = result
             performansi = getKategoriSustainibility(result)
         }
@@ -103,11 +135,39 @@ class BalanceScoreCard {
      * 3. Pertumbuhan Penjualan - 35%
      */
 
-    fun calculateKeuanganKeuntungan(totalPendapatan: Int, totalBiaya: Int): Indikator {
+    fun insertPerspektifKeuangan(
+        totalPendapatan: Double,
+        totalBiaya: Double,
+        volumeProduksiSekarang: Double,
+        volumeProduksiSebelumnya: Double,
+        penjualanSekarang: Double,
+        penjualanSebelumnya: Double
+    ): MutableList<Indikator> {
+        val calculateKeuanganKeuntungan = calculateKeuanganKeuntungan(
+            totalPendapatan = totalPendapatan,
+            totalBiaya = totalBiaya
+        )
+        val calculateKeuanganPertumbuhanVolumeProduksi = calculateKeuanganPertumbuhanVolumeProduksi(
+            volumeProduksiSekarang = volumeProduksiSekarang,
+            volumeProduksiSebelumnya = volumeProduksiSebelumnya
+        )
+        val calculateKeuanganPertumbuhanPenjualan = calculateKeuanganPertumbuhanPenjualan(
+            penjualanSekarang = penjualanSekarang,
+            penjualanSebelumnya = penjualanSebelumnya
+        )
+        return mutableListOf(
+            calculateKeuanganKeuntungan,
+            calculateKeuanganPertumbuhanVolumeProduksi,
+            calculateKeuanganPertumbuhanPenjualan
+        )
+    }
+
+    fun calculateKeuanganKeuntungan(totalPendapatan: Double, totalBiaya: Double): Indikator {
         val perspektif = perspektifKeuangan
         val namaIndikator = "Keuangan"
         val bobotIndikator = 35.0
-        val calculation = (totalPendapatan - totalBiaya).toDouble()
+        val keuntungan = (totalPendapatan - totalBiaya)
+        val calculation = keuntungan / totalPendapatan
         val standardPerformance = 50.0
         val indikator = calculateIndikator(
             calculation = calculation,
@@ -116,15 +176,16 @@ class BalanceScoreCard {
                 perspektif = perspektif,
                 namaIndikator = namaIndikator,
                 bobotIndikator = bobotIndikator
-            )
+            ),
+            calculateName = "KeuanganKeuntungan"
         )
         perspektifKeuangan.daftarIndikator.add(indikator)
         return indikator
     }
 
     fun calculateKeuanganPertumbuhanVolumeProduksi(
-        volumeProduksiSekarang: Int,
-        volumeProduksiSebelumnya: Int
+        volumeProduksiSekarang: Double,
+        volumeProduksiSebelumnya: Double
     ): Indikator {
         val perspektif = perspektifKeuangan
         val namaIndikator = "Pertumbuhan volume produksi"
@@ -146,8 +207,8 @@ class BalanceScoreCard {
     }
 
     fun calculateKeuanganPertumbuhanPenjualan(
-        penjualanSekarang: Int,
-        penjualanSebelumnya: Int
+        penjualanSekarang: Double,
+        penjualanSebelumnya: Double
     ): Indikator {
         val perspektif = perspektifKeuangan
         val namaIndikator = "Pertumbuhan penjualan"
@@ -173,9 +234,29 @@ class BalanceScoreCard {
      * 2. Customer retention - 50%
      */
 
+    fun insertPerspektifKepuasanPelanggan(
+        totalKonsumenTerlayani: Double,
+        totalKeluhanKonsumen: Double,
+        totalKonsumenLama: Double,
+        totalKonsumenTigaBulanTerakhir: Double
+    ): MutableList<Indikator> {
+        val calculateKepuasanKeluhanPelanggan = calculateKepuasanKeluhanPelanggan(
+            totalKonsumenTerlayani = totalKonsumenTerlayani,
+            totalKeluhanKonsumen = totalKeluhanKonsumen
+        )
+        val calculateKepuasanCustomerRetention = calculateKepuasanCustomerRetention(
+            totalKonsumenLama = totalKonsumenLama,
+            totalKonsumenTigaBulanTerakhir = totalKonsumenTigaBulanTerakhir
+        )
+        return mutableListOf(
+            calculateKepuasanKeluhanPelanggan,
+            calculateKepuasanCustomerRetention
+        )
+    }
+
     fun calculateKepuasanKeluhanPelanggan(
-        totalKonsumenTerlayani: Int,
-        totalKeluhanKonsumen: Int
+        totalKonsumenTerlayani: Double,
+        totalKeluhanKonsumen: Double
     ): Indikator {
         val perspektif = perspektifKepuasanPelanggan
         val namaIndikator = "Keluhan pelanggan"
@@ -196,8 +277,8 @@ class BalanceScoreCard {
     }
 
     fun calculateKepuasanCustomerRetention(
-        totalKonsumenLama: Int,
-        totalKonsumenTigaBulanTerakhir: Int
+        totalKonsumenLama: Double,
+        totalKonsumenTigaBulanTerakhir: Double
     ): Indikator {
         val perspektif = perspektifKepuasanPelanggan
         val namaIndikator = "Customer retention"
@@ -224,9 +305,36 @@ class BalanceScoreCard {
      * 3. Produktivitas karyawan - 35%
      */
 
+    fun insertPerspektifPembelajaranDanPertumbuhan(
+        totalKaryawanYangMengikutiPelatihan: Double,
+        totalKaryawan: Double,
+        totalKeluhanTerlayani: Double,
+        totalKeluhanKaryawan: Double,
+        hasilKerjaKaryawan: Double,
+        jamKerja: Double
+    ): MutableList<Indikator> {
+        val calculatePembelajaranPelatihanKaryawan = calculatePembelajaranPelatihanKaryawan(
+            totalKaryawanYangMengikutiPelatihan = totalKaryawanYangMengikutiPelatihan,
+            totalKaryawan = totalKaryawan
+        )
+        val calculatePembelajaranKeluhanKaryawan = calculatePembelajaranKeluhanKaryawan(
+            totalKeluhanTerlayani = totalKeluhanTerlayani,
+            totalKeluhanKaryawan = totalKeluhanKaryawan
+        )
+        val calculatePembelajaranProduktivitasKaryawan = calculatePembelajaranProduktivitasKaryawan(
+            hasilKerjaKaryawan = hasilKerjaKaryawan,
+            jamKerja = jamKerja
+        )
+        return mutableListOf(
+            calculatePembelajaranPelatihanKaryawan,
+            calculatePembelajaranKeluhanKaryawan,
+            calculatePembelajaranProduktivitasKaryawan
+        )
+    }
+
     fun calculatePembelajaranPelatihanKaryawan(
-        totalKaryawanYangMengikutiPelatihan: Int,
-        totalKaryawan: Int
+        totalKaryawanYangMengikutiPelatihan: Double,
+        totalKaryawan: Double
     ): Indikator {
         val perspektif = perspektifPembelajaranDanPertumbuhan
         val namaIndikator = "Pelatihan karyawan"
@@ -247,8 +355,8 @@ class BalanceScoreCard {
     }
 
     fun calculatePembelajaranKeluhanKaryawan(
-        totalKeluhanTerlayani: Int,
-        totalKeluhanKaryawan: Int
+        totalKeluhanTerlayani: Double,
+        totalKeluhanKaryawan: Double
     ): Indikator {
         val perspektif = perspektifPembelajaranDanPertumbuhan
         val namaIndikator = "Keluhan karyawan"
@@ -269,8 +377,8 @@ class BalanceScoreCard {
     }
 
     fun calculatePembelajaranProduktivitasKaryawan(
-        hasilKerjaKaryawan: Int,
-        jamKerja: Int
+        hasilKerjaKaryawan: Double,
+        jamKerja: Double
     ): Indikator {
         val perspektif = perspektifPembelajaranDanPertumbuhan
         val namaIndikator = "Produktivitas karyawan"
@@ -296,8 +404,29 @@ class BalanceScoreCard {
      * 2. Implementasi prosentase program - 50%
      */
 
-    fun calculateBisnisKualitasProduk(totalProdukYangBaik: Int, totalProduk: Int): Indikator {
-        val perspektif = perspektifProsesBisnisInternal
+    fun insertPerspektifProsesBisnisInternal(
+        totalProdukYangBaik: Double,
+        totalProduk: Double,
+        totalProgramTerlaksana: Double,
+        totalRencanaProgram: Double,
+    ): MutableList<Indikator> {
+        val calculateBisnisKualitasProduk = calculateBisnisKualitasProduk(
+            totalProdukYangBaik = totalProdukYangBaik,
+            totalProduk = totalProduk
+        )
+        val calculateBisnisImplementasiProsentaseProgram =
+            calculateBisnisImplementasiProsentaseProgram(
+                totalProgramTerlaksana = totalProgramTerlaksana,
+                totalRencanaProgram = totalRencanaProgram
+            )
+        return mutableListOf(
+            calculateBisnisKualitasProduk,
+            calculateBisnisImplementasiProsentaseProgram,
+        )
+    }
+
+    fun calculateBisnisKualitasProduk(totalProdukYangBaik: Double, totalProduk: Double): Indikator {
+        val perspektif = perspektifProsesBisnisDoubleernal
         val namaIndikator = "Kualitas produk"
         val bobotIndikator = 50.0
         val calculation = totalProdukYangBaik / totalProduk.toDouble()
@@ -311,15 +440,15 @@ class BalanceScoreCard {
                 bobotIndikator = bobotIndikator
             )
         )
-        perspektifProsesBisnisInternal.daftarIndikator.add(indikator)
+        perspektifProsesBisnisDoubleernal.daftarIndikator.add(indikator)
         return indikator
     }
 
     fun calculateBisnisImplementasiProsentaseProgram(
-        totalProgramTerlaksana: Int,
-        totalRencanaProgram: Int
+        totalProgramTerlaksana: Double,
+        totalRencanaProgram: Double
     ): Indikator {
-        val perspektif = perspektifProsesBisnisInternal
+        val perspektif = perspektifProsesBisnisDoubleernal
         val namaIndikator = "Implementasi prosentase program"
         val bobotIndikator = 50.0
         val calculation = totalProgramTerlaksana / totalRencanaProgram.toDouble()
@@ -333,7 +462,7 @@ class BalanceScoreCard {
                 bobotIndikator = bobotIndikator
             )
         )
-        perspektifProsesBisnisInternal.daftarIndikator.add(indikator)
+        perspektifProsesBisnisDoubleernal.daftarIndikator.add(indikator)
         return indikator
     }
 
@@ -342,9 +471,22 @@ class BalanceScoreCard {
      * 1. Peluang pekerjaan - 100%
      */
 
+    fun insertPerspektifSosial(
+        jumlahKaryawanMasyarakatSekitar: Double,
+        jumlahKaryawan: Double
+    ): MutableList<Indikator> {
+        val calculateSosialPeluangPekerjaan = calculateSosialPeluangPekerjaan(
+            jumlahKaryawanMasyarakatSekitar = jumlahKaryawanMasyarakatSekitar,
+            jumlahKaryawan = jumlahKaryawan
+        )
+        return mutableListOf(
+            calculateSosialPeluangPekerjaan,
+        )
+    }
+
     fun calculateSosialPeluangPekerjaan(
-        jumlahKaryawanMasyarakatSekitar: Int,
-        jumlahKaryawan: Int
+        jumlahKaryawanMasyarakatSekitar: Double,
+        jumlahKaryawan: Double
     ): Indikator {
         val perspektif = perspektifSosial
         val namaIndikator = "Peluang pekerjaan"
@@ -371,7 +513,30 @@ class BalanceScoreCard {
      * 2. Dekomposisi daur ulang - 50%
      */
 
-    fun calculateLingkunganProdukDaurUlang(produkDaurUlang: Int, jumlahProduk: Int): Indikator {
+    fun insertPerspektifLingkungan(
+        produkDaurUlang: Double,
+        jumlahProduk: Double,
+        jumlahLimbarDaurUlang: Double,
+        totalLimbahYangDihasilkan: Double
+    ): MutableList<Indikator> {
+        val calculateLingkunganProdukDaurUlang = calculateLingkunganProdukDaurUlang(
+            produkDaurUlang = produkDaurUlang,
+            jumlahProduk = jumlahProduk
+        )
+        val calculateLingkunganDekomposisiDaurUlang = calculateLingkunganDekomposisiDaurUlang(
+            jumlahLimbarDaurUlang = jumlahLimbarDaurUlang,
+            totalLimbahYangDihasilkan = totalLimbahYangDihasilkan
+        )
+        return mutableListOf(
+            calculateLingkunganProdukDaurUlang,
+            calculateLingkunganDekomposisiDaurUlang
+        )
+    }
+
+    fun calculateLingkunganProdukDaurUlang(
+        produkDaurUlang: Double,
+        jumlahProduk: Double
+    ): Indikator {
         val perspektif = perspektifLingkungan
         val namaIndikator = "Produk daur ulang"
         val bobotIndikator = 50.0
@@ -391,8 +556,8 @@ class BalanceScoreCard {
     }
 
     fun calculateLingkunganDekomposisiDaurUlang(
-        jumlahLimbarDaurUlang: Int,
-        totalLimbahYangDihasilkan: Int
+        jumlahLimbarDaurUlang: Double,
+        totalLimbahYangDihasilkan: Double
     ): Indikator {
         val perspektif = perspektifLingkungan
         val namaIndikator = "Dekomposisi daur ulang"
@@ -417,13 +582,352 @@ class BalanceScoreCard {
         total += perspektifKeuangan.daftarIndikator.sumOf { it.hasil }
         total += perspektifKeuangan.daftarIndikator.sumOf { it.hasil }
         total += perspektifPembelajaranDanPertumbuhan.daftarIndikator.sumOf { it.hasil }
-        total += perspektifProsesBisnisInternal.daftarIndikator.sumOf { it.hasil }
+        total += perspektifProsesBisnisDoubleernal.daftarIndikator.sumOf { it.hasil }
         total += perspektifSosial.daftarIndikator.sumOf { it.hasil }
         total += perspektifLingkungan.daftarIndikator.sumOf { it.hasil }
         return Result(
             totalScore = total,
             kategori = getKategoriSustainibility(total)
         )
+    }
+
+
+    fun getStrategi(tipePerspektif: String, skorKategori: String): List<String> {
+        return when (tipePerspektif) {
+            Perspektif.KEUANGAN -> {
+                when (skorKategori) {
+                    kategoriPoor -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriMarginal -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriAverage -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriGood -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriExcellent -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriNotFound -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    else -> {
+                        emptyList()
+                    }
+                }
+            }
+            Perspektif.KEPUASAN_PELANGGAN -> {
+                when (skorKategori) {
+                    kategoriPoor -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriMarginal -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriAverage -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriGood -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriExcellent -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriNotFound -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    else -> {
+                        emptyList()
+                    }
+                }
+            }
+            Perspektif.PEMBELAJARAN_DAN_PERTUMBUHAN -> {
+                when (skorKategori) {
+                    kategoriPoor -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriMarginal -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriAverage -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriGood -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriExcellent -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriNotFound -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    else -> {
+                        emptyList()
+                    }
+                }
+            }
+            Perspektif.PROSES_BISNIS_INTERNAL -> {
+                when (skorKategori) {
+                    kategoriPoor -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriMarginal -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriAverage -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriGood -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriExcellent -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriNotFound -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    else -> {
+                        emptyList()
+                    }
+                }
+            }
+            Perspektif.SOSIAL -> {
+                when (skorKategori) {
+                    kategoriPoor -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriMarginal -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriAverage -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriGood -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriExcellent -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriNotFound -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    else -> {
+                        emptyList()
+                    }
+                }
+            }
+            Perspektif.LINGKUNGAN -> {
+                when (skorKategori) {
+                    kategoriPoor -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriMarginal -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriAverage -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriGood -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriExcellent -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    kategoriNotFound -> {
+                        listOf(
+                            "Ini adalah strategi satu",
+                            "Ini adalah strategi dua",
+                            "Ini adalah strategi tiga",
+                            "Ini adalah strategi empat",
+                        )
+                    }
+                    else -> {
+                        emptyList()
+                    }
+                }
+            }
+            else -> {
+                emptyList()
+            }
+        }
     }
 
 }
@@ -442,7 +946,7 @@ data class Perspektif(
         const val KEUANGAN = "Keuangan"
         const val KEPUASAN_PELANGGAN = "Kepuasan Pelanggan"
         const val PEMBELAJARAN_DAN_PERTUMBUHAN = "Pembelajaran dan Pertumbuhan"
-        const val PROSES_BISNIS_INTERNAL = "Proses bisnis internal"
+        const val PROSES_BISNIS_INTERNAL = "Proses bisnis Doubleernal"
         const val SOSIAL = "Sosial"
         const val LINGKUNGAN = "Lingkungan"
     }
@@ -455,89 +959,59 @@ data class Indikator(
     var kinerjaSebenarnya: Double = 0.0,
     var kinerjaStandar: Double = 0.0,
     var tingkatKinerja: Double = 0.0,
+    var tingkatKinerjaKategori: String = "",
     var hasil: Double = 0.0,
     var performansi: String = ""
 )
 
 data class Kuesioner(
-    var daftarKuesioner: MutableList<ItemKuesioner> = mutableListOf()
-)
-
-fun getKuesioner(perspektif: String): MutableList<ItemKuesioner> {
-    when (perspektif) {
-        Perspektif.KEUANGAN -> {
-            return mutableListOf(
-                ItemKuesioner(
-                    perspektif = Perspektif.KEUANGAN,
-                    pertanyaan = "Total pendapatan usaha dalam sebulan"
-                ),
-                ItemKuesioner(
-                    perspektif = Perspektif.KEUANGAN,
-                    pertanyaan = "Total biaya usaha dalam sebulan"
-                ),
-                ItemKuesioner(
-                    perspektif = Perspektif.KEUANGAN,
-                    pertanyaan = "Volume produksi pada periode saat ini"
-                ),
-                ItemKuesioner(
-                    perspektif = Perspektif.KEUANGAN,
-                    pertanyaan = "Volume produksi pada periode sebelumnya"
-                ),
-                ItemKuesioner(
-                    perspektif = Perspektif.KEUANGAN,
-                    pertanyaan = "Total penjualan pada periode saat ini"
-                ),
-                ItemKuesioner(
-                    perspektif = Perspektif.KEUANGAN,
-                    pertanyaan = "Total penjualan pada periode sebelumnya"
-                )
-            )
-        }
-        Perspektif.KEPUASAN_PELANGGAN -> {
-            return mutableListOf(
-                ItemKuesioner(
-                    perspektif = Perspektif.KEPUASAN_PELANGGAN,
-                    pertanyaan = "Total konsumen terlayani"
-                ),
-                ItemKuesioner(
-                    perspektif = Perspektif.KEPUASAN_PELANGGAN,
-                    pertanyaan = "Total keluhan konsumen"
-                ),
-                ItemKuesioner(
-                    perspektif = Perspektif.KEPUASAN_PELANGGAN,
-                    pertanyaan = "Total konsumen lama dalam 3 bulan terakhir"
-                ),
-                ItemKuesioner(
-                    perspektif = Perspektif.KEPUASAN_PELANGGAN,
-                    pertanyaan = "Total seluruh konsumen dalam 3 bulan terakhir"
-                )
-            )
-        }
-        else -> {
-            return mutableListOf(
-                ItemKuesioner(
-                    perspektif = Perspektif.KEPUASAN_PELANGGAN,
-                    pertanyaan = "Total konsumen terlayani"
-                ),
-                ItemKuesioner(
-                    perspektif = Perspektif.KEPUASAN_PELANGGAN,
-                    pertanyaan = "Total keluhan konsumen"
-                ),
-                ItemKuesioner(
-                    perspektif = Perspektif.KEPUASAN_PELANGGAN,
-                    pertanyaan = "Total konsumen lama dalam 3 bulan terakhir"
-                ),
-                ItemKuesioner(
-                    perspektif = Perspektif.KEPUASAN_PELANGGAN,
-                    pertanyaan = "Total seluruh konsumen dalam 3 bulan terakhir"
-                )
-            )
-        }
-    }
+    var namaKuesioner: String? = null,
+    var idKuesioner: String = "",
+    var idUser: String = "",
+    var tanggal: String = "",
+    var skor: Double = 0.0,
+    var skorKategori: String = "",
+    var indikatorKeuangan: List<Double> = mutableListOf(),
+    var indikatorKepuasan: List<Double> = mutableListOf(),
+    var indikatorPembelajaran: List<Double> = mutableListOf(),
+    var indikatorProsesBisnis: List<Double> = mutableListOf(),
+    var indikatorSosial: List<Double> = mutableListOf(),
+    var indikatorLingkungan: List<Double> = mutableListOf(),
+    var strategiKeuangan: List<String> = mutableListOf(),
+    var strategiKepuasan: List<String> = mutableListOf(),
+    var strategiPembelajaran: List<String> = mutableListOf(),
+    var strategiProsesBisnis: List<String> = mutableListOf(),
+    var strategiSosial: List<String> = mutableListOf(),
+    var strategiLingkungan: List<String> = mutableListOf(),
+) {
+    constructor() : this(
+        "",
+        "",
+        "",
+        "",
+        0.0,
+        "",
+        emptyList(),
+        emptyList(),
+        emptyList(),
+        emptyList(),
+        emptyList(),
+        emptyList(),
+        emptyList(),
+        emptyList(),
+        emptyList(),
+        emptyList(),
+        emptyList(),
+        emptyList()
+    )
 }
 
-data class ItemKuesioner(
-    var perspektif: String = "",
-    var pertanyaan: String = "",
-    var jawaban: Double = 0.0
+data class KuesionerByDate(
+    var tanggal: String,
+    var listKuesioner: List<Kuesioner>,
+)
+
+data class Strategi(
+    var number: String,
+    var strategi: String
 )

@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="280dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <TextView
+        android:id="@+id/tvSwipeUp"
+        style="@style/medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/layout_margin_4"
+        android:padding="@dimen/layout_margin_16"
+        android:text="Lihat rincian hasil dan rekomendasi strategi"
+        android:textAlignment="center"
+        app:drawableTopCompat="@drawable/ic_swipe_up" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvSwipeUp"
+        android:background="@color/white"
+        android:padding="@dimen/layout_margin_16"
+        android:text="Hasil dan Rekomendasi Strategi"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/rlBottom"
+        android:layout_below="@id/tvTitle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:background="@drawable/bg_round_top"
+            android:orientation="vertical"
+            android:paddingVertical="@dimen/layout_margin_16">
+
+            <TextView
+                android:id="@+id/tvPerspektifKeuangan"
+                style="@style/semibold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/layout_margin_16"
+                android:text="Perspektif Keuangan"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                app:drawableEndCompat="@drawable/ic_dropdown_down" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:id="@+id/llPerspektifKeuangan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Keuntungan" />
+
+                    <TextView
+                        android:id="@+id/tvKeuangan1"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Pertumbuhan volume produksi" />
+
+                    <TextView
+                        android:id="@+id/tvKeuangan2"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Pertumbuhan penjualan" />
+
+                    <TextView
+                        android:id="@+id/tvKeuangan3"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvPerspektifPelanggan"
+                style="@style/semibold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/layout_margin_16"
+                android:text="Perspektif Pelanggan"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                app:drawableEndCompat="@drawable/ic_dropdown_down" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:id="@+id/llPerspektifPelanggan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Keluhan pelanggan" />
+
+                    <TextView
+                        android:id="@+id/tvPelanggan1"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Customer retention" />
+
+                    <TextView
+                        android:id="@+id/tvPelanggan2"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvPerspektifPembelajaran"
+                style="@style/semibold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/layout_margin_16"
+                android:text="Perspektif Pembelajaran dan Pertumbuhan"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                app:drawableEndCompat="@drawable/ic_dropdown_down" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:id="@+id/llPerspektifPembelajaran"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Pelatihan karyawan" />
+
+                    <TextView
+                        android:id="@+id/tvPembelajaran1"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Keluhan karyawan" />
+
+                    <TextView
+                        android:id="@+id/tvPembelajaran2"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Produktivitas karyawan" />
+
+                    <TextView
+                        android:id="@+id/tvPembelajaran3"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvPerspektifProsesBisnis"
+                style="@style/semibold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/layout_margin_16"
+                android:text="Perspektif Proses Bisnis Internal"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                app:drawableEndCompat="@drawable/ic_dropdown_down" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:id="@+id/llPerspektifProsesBisnis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Kualitas produk" />
+
+                    <TextView
+                        android:id="@+id/tvProsesBisnis1"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Implementasi prosentase program" />
+
+                    <TextView
+                        android:id="@+id/tvProsesBisnis2"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvPerspektifSosial"
+                style="@style/semibold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/layout_margin_16"
+                android:text="Perspektif Sosial"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                app:drawableEndCompat="@drawable/ic_dropdown_down" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:id="@+id/llPerspektifSosial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Peluang pekerjaan" />
+
+                    <TextView
+                        android:id="@+id/tvSosial1"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvPerspektifLingkungan"
+                style="@style/semibold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/layout_margin_16"
+                android:text="Perspektif Lingkungan"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                app:drawableEndCompat="@drawable/ic_dropdown_down" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:id="@+id/llPerspektifLingkungan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Produk daur ulang" />
+
+                    <TextView
+                        android:id="@+id/tvLingkungan1"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_4"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/layout_margin_16"
+                    android:paddingVertical="@dimen/layout_margin_4">
+
+                    <TextView
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Dekomposisi daur ulang" />
+
+                    <TextView
+                        android:id="@+id/tvLingkungan2"
+                        style="@style/medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text=": 5.000.000"
+                        android:textAlignment="textEnd" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvStrategi"
+                style="@style/semibold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/layout_margin_16"
+                android:text="Strategi"
+                android:textColor="@color/primary"
+                android:textSize="14sp"
+                app:drawableEndCompat="@drawable/ic_dropdown_up" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:background="@color/divider" />
+
+            <LinearLayout
+                android:id="@+id/llPerspektif"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/semibold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/layout_margin_16"
+                    android:text="Perspektif Keuangan"
+                    android:textSize="16sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvStrategiKeuangan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/layout_margin_16"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_strategi"/>
+
+                <TextView
+                    style="@style/semibold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/layout_margin_16"
+                    android:text="Perspektif Kepuasan Pelanggan"
+                    android:textSize="16sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvStrategiKepuasanPelanggan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/layout_margin_16"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_strategi"/>
+
+                <TextView
+                    style="@style/semibold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/layout_margin_16"
+                    android:text="Perspektif Pembelajaran dan Pertumbuhan"
+                    android:textSize="16sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvStrategiPembelajaranDanPertumbuhan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/layout_margin_16"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_strategi"/>
+
+                <TextView
+                    style="@style/semibold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/layout_margin_16"
+                    android:text="Perspektif Proses Bisnis Internal"
+                    android:textSize="16sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvStrategiProsesBisnisInternal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/layout_margin_16"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_strategi"/>
+
+                <TextView
+                    style="@style/semibold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/layout_margin_16"
+                    android:text="Perspektif Sosial"
+                    android:textSize="16sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvStrategiSosial"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/layout_margin_16"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_strategi"/>
+
+                <TextView
+                    style="@style/semibold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/layout_margin_16"
+                    android:text="Perspektif Lingkungan"
+                    android:textSize="16sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvStrategiProsesLingkungan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/layout_margin_16"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_strategi"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:id="@+id/rlBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:padding="@dimen/layout_margin_16">
+
+        <TextView
+            android:id="@+id/tvBackToHome"
+            style="@style/primaryButtonsDefault"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kembali ke Beranda" />
+    </RelativeLayout>
+</RelativeLayout>

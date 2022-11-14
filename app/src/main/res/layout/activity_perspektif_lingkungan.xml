@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".presentation.home.users.ui.home.questioner.pertama.PerspektifKeuanganActivity">
+
+    <include
+        android:id="@+id/appBarLayout"
+        layout="@layout/layout_app_bar_white" />
+
+    <ImageView
+        android:id="@+id/ivStep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appBarLayout"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_step_6" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/llBottom"
+        android:layout_below="@id/ivStep">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv1"
+                style="@style/medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_16"
+                android:text="Total produk daur ulang" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et1"
+                style="@style/myEditText"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_4"
+                android:hint="Contoh: 1000 "
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/tv2"
+                style="@style/medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_16"
+                android:text="Total seluruh produk" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et2"
+                style="@style/myEditText"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_4"
+                android:hint="Contoh: 1000 "
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/tv3"
+                style="@style/medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_16"
+                android:text="Total limbah daur ulang" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et3"
+                style="@style/myEditText"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_4"
+                android:hint="Contoh: 1000 "
+                android:inputType="number" />
+
+            <TextView
+                android:id="@+id/tv4"
+                style="@style/medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_16"
+                android:text="Total limbah yang dihasilkan" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et4"
+                style="@style/myEditText"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_4"
+                android:hint="Contoh: 1000 "
+                android:inputType="number" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:id="@+id/llBottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_bottom_navigation_stepper"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/layout_margin_16">
+
+        <TextView
+            android:id="@+id/tvDisabled"
+            style="@style/primaryButtonsDisabled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Selesai" />
+
+        <TextView
+            android:id="@+id/tvEnabled"
+            style="@style/primaryButtonsDefault"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Selesai"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</RelativeLayout>

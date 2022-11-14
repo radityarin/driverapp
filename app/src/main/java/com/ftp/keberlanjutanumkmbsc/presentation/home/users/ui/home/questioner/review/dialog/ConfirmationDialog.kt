@@ -1,17 +1,16 @@
-package com.ftp.keberlanjutanumkmbsc.presentation.register.dialog
+package com.ftp.keberlanjutanumkmbsc.presentation.home.users.ui.home.questioner.review.dialog
 
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.ftp.keberlanjutanumkmbsc.R
-import com.ftp.keberlanjutanumkmbsc.databinding.DialogResultBottomBinding
+import com.ftp.keberlanjutanumkmbsc.databinding.DialogConfirmationBottomBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class ResultDialog : BottomSheetDialogFragment {
+class ConfirmationDialog : BottomSheetDialogFragment() {
 
-    private var _binding: DialogResultBottomBinding? = null
+    private var _binding: DialogConfirmationBottomBinding? = null
     private val binding get() = _binding!!
 
     var isSuccess = false
@@ -19,33 +18,6 @@ class ResultDialog : BottomSheetDialogFragment {
     var title: String = ""
     var content: String = ""
     var button: String = ""
-
-    constructor() : super()
-
-    constructor(isSuccess: Boolean) {
-        this.isSuccess = isSuccess
-        drawableId = if (isSuccess) {
-            R.drawable.ic_popup_success
-        } else {
-            R.drawable.ic_popup_failed
-        }
-        title = if (isSuccess) {
-            "Berhasil"
-        } else {
-            "Gagal"
-        }
-        content = if (isSuccess) {
-            "Selamat! Anda berhasil membuat akun.\n" +
-                    "Ayo, jelajahi StrategiKu!"
-        } else {
-            "Oops.. Anda gagal membuat akun.Silahkan\nperiksa kembali jaringan koneksi Anda."
-        }
-        button = if (isSuccess) {
-            "Ok"
-        } else {
-            "Ok"
-        }
-    }
 
     companion object {
         val TAG = this.javaClass.simpleName
@@ -63,7 +35,7 @@ class ResultDialog : BottomSheetDialogFragment {
     }
 
     interface OkListener {
-        fun onOkClickListener(isSuccess: Boolean)
+        fun onOkClickListener()
     }
 
     override fun onCreateView(
@@ -71,7 +43,7 @@ class ResultDialog : BottomSheetDialogFragment {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = DialogResultBottomBinding.inflate(inflater, container, false)
+        _binding = DialogConfirmationBottomBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -83,11 +55,13 @@ class ResultDialog : BottomSheetDialogFragment {
     private fun initClickListeners() {
         with(binding) {
             tvClose.setOnClickListener {
-                listener?.onOkClickListener(isSuccess)
                 dismiss()
             }
             tvOk.setOnClickListener {
-                listener?.onOkClickListener(isSuccess)
+                listener?.onOkClickListener()
+                dismiss()
+            }
+            tvCancel.setOnClickListener {
                 dismiss()
             }
         }

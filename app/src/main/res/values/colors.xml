@@ -15,5 +15,6 @@
     <color name="gray_text">#707070</color>
 
     <color name="negative">#DC4242</color>
+    <color name="divider">#E7EFFF</color>
     <color name="disabled">#BABABA</color>
 </resources>

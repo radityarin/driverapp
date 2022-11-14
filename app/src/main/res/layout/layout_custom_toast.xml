@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutCustomToast"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/layout_margin_16"
+        android:background="@drawable/bg_toast"
+        android:orientation="horizontal"
+        android:padding="@dimen/layout_margin_16"
+        android:paddingLeft="@dimen/layout_margin_24"
+        android:paddingRight="@dimen/layout_margin_24"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvToastMessage"
+            style="@style/semibold"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/layout_margin_16"
+            android:textColor="@color/white"
+            tools:text="Text here, diakhiri dengan titik." />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

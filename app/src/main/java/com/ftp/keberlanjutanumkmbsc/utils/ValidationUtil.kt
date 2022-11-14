@@ -110,3 +110,68 @@ fun setEditTextAndButtonAndCheckBoxListener(
         }
     }
 }
+
+fun setEditTextAndButtonAndCheckBoxAndSpinnerListener(
+    listOfEditText: List<EditText>,
+    checkBox: CheckBox,
+    spinners: List<Spinner>,
+    button: TextView,
+    buttonDisabled: TextView
+) {
+    listOfEditText.forEach {
+        it.doAfterTextChanged {
+            val listOfSpinnerFilled = spinners.map { spinner -> spinner.selectedItemPosition != 0 }
+            var isSpinnerFilled = true
+            listOfSpinnerFilled.forEach { spinnerFilled ->
+                isSpinnerFilled = isSpinnerFilled && spinnerFilled
+            }
+
+            listOfEditText.isEditTextFilled { isFilled ->
+                button.isVisible = isFilled && checkBox.isChecked && isSpinnerFilled
+                buttonDisabled.isVisible = !isFilled || !checkBox.isChecked || !isSpinnerFilled
+            }
+        }
+        checkBox.setOnCheckedChangeListener { _, _ ->
+            val listOfSpinnerFilled = spinners.map { spinner -> spinner.selectedItemPosition != 0 }
+            var isSpinnerFilled = true
+            listOfSpinnerFilled.forEach { spinnerFilled ->
+                isSpinnerFilled = isSpinnerFilled && spinnerFilled
+            }
+
+            listOfEditText.isEditTextFilled { isFilled ->
+                button.isVisible = isFilled && checkBox.isChecked && isSpinnerFilled
+                buttonDisabled.isVisible = !isFilled || !checkBox.isChecked || !isSpinnerFilled
+            }
+        }
+        spinners.forEach{
+            it.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    val listOfSpinnerFilled = spinners.map { spinner -> spinner.selectedItemPosition != 0 }
+                    var isSpinnerFilled = true
+                    listOfSpinnerFilled.forEach { spinnerFilled ->
+                        isSpinnerFilled = isSpinnerFilled && spinnerFilled
+                    }
+
+                    listOfEditText.isEditTextFilled { isFilled ->
+                        button.isVisible = isFilled && checkBox.isChecked && isSpinnerFilled
+                        buttonDisabled.isVisible = !isFilled || !checkBox.isChecked || !isSpinnerFilled
+                    }
+                }
+
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+                    val listOfSpinnerFilled = spinners.map { spinner -> spinner.selectedItemPosition != 0 }
+                    var isSpinnerFilled = true
+                    listOfSpinnerFilled.forEach { spinnerFilled ->
+                        isSpinnerFilled = isSpinnerFilled && spinnerFilled
+                    }
+
+                    listOfEditText.isEditTextFilled { isFilled ->
+                        button.isVisible = isFilled && checkBox.isChecked && isSpinnerFilled
+                        buttonDisabled.isVisible = !isFilled || !checkBox.isChecked || !isSpinnerFilled
+                    }
+                }
+
+            }
+        }
+    }
+}

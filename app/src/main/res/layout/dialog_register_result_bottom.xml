@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_round_top"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/layout_margin_32"
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+
+    <TextView
+        android:id="@+id/tvClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_margin="@dimen/layout_margin_16"
+        android:background="@drawable/ic_close" />
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/ic_onboarding_1" />
+
+    <TextView
+        style="@style/heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/layout_margin_8"
+        android:text="Berhasil" />
+
+    <TextView
+        style="@style/medium"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/layout_margin_8"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="@dimen/layout_margin_16"
+        android:text="Selamat! Anda berhasil membuat akun.\nAyo, jelajahi StrategiKu!"
+        android:textAlignment="center"
+        android:textColor="@color/gray_text" />
+
+    <TextView
+        android:id="@+id/tvOk"
+        style="@style/primaryButtonsDefault"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="@dimen/layout_margin_16"
+        android:layout_marginTop="@dimen/layout_margin_32"
+        android:text="Ok"
+        android:textAlignment="center" />
+
+
+</LinearLayout>

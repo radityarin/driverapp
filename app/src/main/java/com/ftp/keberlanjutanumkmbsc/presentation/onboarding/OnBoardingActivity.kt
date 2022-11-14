@@ -7,8 +7,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.SnapHelper
 import com.ftp.keberlanjutanumkmbsc.adapter.OnBoardingAdapter
+import com.ftp.keberlanjutanumkmbsc.data.pref.ProfilePrefs
 import com.ftp.keberlanjutanumkmbsc.databinding.ActivityOnBoardingBinding
 import com.ftp.keberlanjutanumkmbsc.domain.model.getOnBoarding
+import com.ftp.keberlanjutanumkmbsc.utils.goToHome
 import com.ftp.keberlanjutanumkmbsc.utils.goToLanding
 import com.ftp.keberlanjutanumkmbsc.utils.helper.SnapOnScrollListener
 import com.ftp.keberlanjutanumkmbsc.utils.helper.SnapOnScrollListener.Companion.NOTIFY_ON_SCROLL
@@ -21,6 +23,9 @@ class OnBoardingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (ProfilePrefs.idFirebase.isNotEmpty()) {
+            goToHome()
+        }
         _binding = ActivityOnBoardingBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)

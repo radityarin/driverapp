@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Keberlanjutan UMKM BSC</string>
+    <string name="title_activity_user_main">UserMainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+
+    <string-array name="jenis_kelamin">
+        <item>Pilih jenis kelamin</item>
+        <item>Laki-laki</item>
+        <item>Perempuan</item>
+    </string-array>
+
 </resources>

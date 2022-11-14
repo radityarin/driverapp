@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.home.users.ui.home.HomeFragment">
+
+    <TextView
+        android:id="@+id/tvWelcome"
+        style="@style/heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/layout_margin_16"
+        android:layout_marginTop="@dimen/layout_margin_16"
+        android:layout_marginEnd="@dimen/layout_margin_16"
+        android:layout_marginBottom="@dimen/layout_margin_16"
+        android:text="Hi, " />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:paddingTop="100dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:src="@drawable/ic_home_illustration" />
+
+        <TextView
+            style="@style/semibold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/layout_margin_32"
+            android:text="Yuk, cari tahu perspektif usahamu!"
+            android:textColor="@color/primary" />
+
+        <TextView
+            style="@style/regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ukur status keberlanjutan usaha anda dengan\n
+klik tombol dibawah"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/tvIsiPerspektif"
+            style="@style/primaryButtonsDefault"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/layout_margin_16"
+            android:layout_marginTop="@dimen/layout_margin_16"
+            android:layout_marginBottom="@dimen/layout_margin_32"
+            android:text="Isi Perspektif"
+            android:textAlignment="center" />
+    </LinearLayout>
+</RelativeLayout>
