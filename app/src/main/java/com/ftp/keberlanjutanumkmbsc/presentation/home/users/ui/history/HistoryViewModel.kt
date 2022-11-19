@@ -7,6 +7,7 @@ import com.ftp.keberlanjutanumkmbsc.data.pref.ProfilePrefs
 import com.ftp.keberlanjutanumkmbsc.data.utils.Resource
 import com.ftp.keberlanjutanumkmbsc.domain.usecases.questioner.QuestionerUseCase
 import com.ftp.keberlanjutanumkmbsc.presentation.base.BaseViewModel
+import com.ftp.keberlanjutanumkmbsc.utils.UtilsDate.ISOTimeToDateTime
 import kotlinx.coroutines.launch
 
 class HistoryViewModel(
@@ -17,14 +18,15 @@ class HistoryViewModel(
 
     fun getRiwayatKuesioner() {
         viewModelScope.launch {
-            questionerUseCase.getListQuestionerWithSpecificID(ProfilePrefs.idUser).collect {
+            questionerUseCase.getListQuestionerWithSpecificID(ProfilePrefs.idUser).collect { it ->
                 when (it) {
                     is Resource.Loading -> {
                         showLoadingLiveData.value = true
                     }
                     is Resource.Success -> {
                         showLoadingLiveData.value = false
-                        listKuesionerLiveData.value = it.data ?: emptyList()
+                        val listKuesioner = it.data ?: emptyList()
+                        listKuesionerLiveData.value = listKuesioner.sortedBy { kuesioner -> kuesioner.urutan }
                     }
                     is Resource.Error -> {
                         showLoadingLiveData.value = false

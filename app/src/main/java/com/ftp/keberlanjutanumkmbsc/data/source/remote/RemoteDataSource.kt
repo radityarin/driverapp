@@ -1,6 +1,7 @@
 package com.ftp.keberlanjutanumkmbsc.data.source.remote
 
 import com.ftp.keberlanjutanumkmbsc.data.logic.Kuesioner
+import com.ftp.keberlanjutanumkmbsc.data.pref.ProfilePrefs.idUser
 import com.ftp.keberlanjutanumkmbsc.data.utils.Resource
 import com.ftp.keberlanjutanumkmbsc.domain.model.User
 import com.ftp.keberlanjutanumkmbsc.utils.Constants
@@ -101,6 +102,14 @@ class RemoteDataSource(
 
     fun addQuestioner(questioner: Kuesioner) = flow<Resource<Boolean>> {
         emit(Resource.Loading())
+        val snapshot =
+            mQuestionersCollection.whereEqualTo(
+                Constants.COLLECTION_GENERAL_ATTRIBUTE_ID_USER,
+                idUser
+            ).get().await()
+        val questioners = snapshot.toObjects(Kuesioner::class.java)
+        val urutan = questioners.size
+        questioner.urutan = urutan + 1
         mQuestionersCollection.document(questioner.idKuesioner).set(questioner).await()
         emit(Resource.Success(true))
     }.catch {

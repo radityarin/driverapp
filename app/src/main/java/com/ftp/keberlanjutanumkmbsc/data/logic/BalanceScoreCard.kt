@@ -1,5 +1,7 @@
 package com.ftp.keberlanjutanumkmbsc.data.logic
 
+import com.ftp.keberlanjutanumkmbsc.utils.UtilsDate
+
 class BalanceScoreCard {
 
     val perspektifKeuangan = Perspektif()
@@ -971,6 +973,7 @@ data class Kuesioner(
     var tanggal: String = "",
     var skor: Double = 0.0,
     var skorKategori: String = "",
+    var urutan: Int = 0,
     var indikatorKeuangan: List<Double> = mutableListOf(),
     var indikatorKepuasan: List<Double> = mutableListOf(),
     var indikatorPembelajaran: List<Double> = mutableListOf(),
@@ -991,6 +994,7 @@ data class Kuesioner(
         "",
         0.0,
         "",
+        0,
         emptyList(),
         emptyList(),
         emptyList(),
