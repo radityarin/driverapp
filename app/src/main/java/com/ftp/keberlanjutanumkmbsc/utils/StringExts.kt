@@ -11,3 +11,4 @@ fun String.addTwoDot(): String {
 fun Double?.toTwoNumberBehindComma(): String {
     return String.format("%.2f", this)
 }
+

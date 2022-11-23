@@ -18,7 +18,7 @@ class HistoryViewModel(
 
     fun getRiwayatKuesioner() {
         viewModelScope.launch {
-            questionerUseCase.getListQuestionerWithSpecificID(ProfilePrefs.idUser).collect { it ->
+            questionerUseCase.getAllQuestioner().collect { it ->
                 when (it) {
                     is Resource.Loading -> {
                         showLoadingLiveData.value = true

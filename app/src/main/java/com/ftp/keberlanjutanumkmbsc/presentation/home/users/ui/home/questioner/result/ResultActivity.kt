@@ -105,7 +105,7 @@ class ResultActivity : BaseActivity() {
 
         questionerViewModel.scoreLiveData.observe(this) {
             with(binding) {
-                tvSkor.text = it.toString()
+                tvSkor.text = it.toTwoNumberBehindComma()
             }
         }
 

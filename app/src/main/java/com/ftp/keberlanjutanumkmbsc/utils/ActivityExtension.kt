@@ -9,6 +9,7 @@ import android.view.Window
 import android.view.WindowManager
 import com.ftp.keberlanjutanumkmbsc.R
 import com.ftp.keberlanjutanumkmbsc.data.pref.ProfilePrefs
+import com.ftp.keberlanjutanumkmbsc.presentation.home.admin.AdminMainActivity
 import com.ftp.keberlanjutanumkmbsc.presentation.home.users.UserMainActivity
 import com.ftp.keberlanjutanumkmbsc.presentation.home.users.ui.home.questioner.kedua.PerspektifPelangganActivity
 import com.ftp.keberlanjutanumkmbsc.presentation.home.users.ui.home.questioner.keempat.PerspektifBisnisActivity
@@ -20,9 +21,22 @@ import com.ftp.keberlanjutanumkmbsc.presentation.home.users.ui.home.questioner.r
 import com.ftp.keberlanjutanumkmbsc.presentation.home.users.ui.home.questioner.review.PerspektifReviewActivity
 import com.ftp.keberlanjutanumkmbsc.presentation.landing.LandingActivity
 import com.ftp.keberlanjutanumkmbsc.presentation.login.LoginActivity
+import com.ftp.keberlanjutanumkmbsc.presentation.onboarding.OnBoardingActivity
 import com.ftp.keberlanjutanumkmbsc.presentation.register.RegisterActivity
 import com.ftp.keberlanjutanumkmbsc.presentation.register.dialog.RegisterResultDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+
+fun Activity.goToOnBoarding() {
+    ProfilePrefs.clear()
+    finishAffinity()
+    startActivity(
+        Intent(
+            this,
+            OnBoardingActivity::class.java
+        )
+    )
+    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+}
 
 fun Activity.goToLanding() {
     ProfilePrefs.clear()
@@ -61,6 +75,17 @@ fun Activity.goToHome() {
         Intent(
             this,
             UserMainActivity::class.java
+        )
+    )
+    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+    finishAffinity()
+}
+
+fun Activity.goToHomeAdmin() {
+    startActivity(
+        Intent(
+            this,
+            AdminMainActivity::class.java
         )
     )
     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)

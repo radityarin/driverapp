@@ -1,7 +1,5 @@
 package com.ftp.keberlanjutanumkmbsc.data.logic
 
-import com.ftp.keberlanjutanumkmbsc.utils.UtilsDate
-
 class BalanceScoreCard {
 
     val perspektifKeuangan = Perspektif()
@@ -106,9 +104,10 @@ class BalanceScoreCard {
         calculation: Double,
         standardPerformance: Double,
         indikator: Indikator,
-        calculateName: String = ""
+        calculateName: String = "",
+        toPercentage: Boolean = true
     ): Indikator {
-        val actualPerformance = calculation * 100.0
+        val actualPerformance = if (toPercentage) calculation * 100.0  else calculation
         val nilaiTingkatKinerja = getTingkatKinerja(actualPerformance, standardPerformance)
         val nilaiTingkatKinerjaKategori =
             getTingkatKinerjaKategori(actualPerformance, standardPerformance)
@@ -394,7 +393,8 @@ class BalanceScoreCard {
                 perspektif = perspektif,
                 namaIndikator = namaIndikator,
                 bobotIndikator = bobotIndikator
-            )
+            ),
+            toPercentage = false
         )
         perspektifPembelajaranDanPertumbuhan.daftarIndikator.add(indikator)
         return indikator
@@ -600,50 +600,39 @@ class BalanceScoreCard {
                 when (skorKategori) {
                     kategoriPoor -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Mengembangkan strategi penetapan harga untuk merespon perubahan pasar secara cepat",
+                            "Mengembangkan sistem untuk memonitor harga pesaing",
+                            "Memperbaiki laporan keuangan usaha"
                         )
                     }
                     kategoriMarginal -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Menerapkan sistem untuk memonitor harga pesaing",
+                            "Menyusun laporan keuangan usaha secara teratur",
+                            "Melakukan pelaporan keuangan setiap bulan untuk mengetahui kondisi usaha"
                         )
                     }
                     kategoriAverage -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Mempertahankan sistem pelaporan keuangan yang telah dilakukan",
+                            "Menganalisis laba secara rutin",
                         )
                     }
                     kategoriGood -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Mempertahankan sistem pelaporan keuangan yang telah dilakukan",
+                            "Mempertahankan strategi penentuan harga yang telah disusun"
                         )
                     }
                     kategoriExcellent -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Mempertahankan sistem pelaporan keuangan yang telah dilakukan",
+                            "Mempertahankan strategi penentuan harga yang telah disusun"
                         )
                     }
                     kategoriNotFound -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Strategi tidak ditemukan.",
                         )
                     }
                     else -> {
@@ -655,50 +644,41 @@ class BalanceScoreCard {
                 when (skorKategori) {
                     kategoriPoor -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Memberikan promo untuk pelanggan baru",
+                            "Memberikan pelayanan yang ramah",
+                            "Mengidentifikasi dan menilai produk yang diinginkan konsumen"
                         )
                     }
                     kategoriMarginal -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Memberikan diskon untuk pelanggan yang sudah melakukan pembelian lebih dari 3",
+                            "Meningkatkan kualitas produk dan kemasan produk",
+                            "Menambah varian produk yang dijual"
                         )
                     }
                     kategoriAverage -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Menambah varian produk yang dijual",
+                            "Meningkatkan kualitas kemasan produk",
+                            "Menambah jumlah promo produk"
                         )
                     }
                     kategoriGood -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Mempertahankan kualitas dan kemasan produk",
+                            "Meningkatkan jumlah diskon pembelian produk",
+                            "Mengikuti pameran produk sejenis"
                         )
                     }
                     kategoriExcellent -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Mempertahankan kualitas dan kemasan produk",
+                            "Meningkatkan jumlah diskon pembelian produk"
                         )
                     }
                     kategoriNotFound -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Strategi tidak ditemukan"
                         )
                     }
                     else -> {
@@ -710,50 +690,38 @@ class BalanceScoreCard {
                 when (skorKategori) {
                     kategoriPoor -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Memberikan pelatihan tentang manajemen mutu produksi untuk pekerja",
+                            "Memberikan pelatihan tentang strategi pemasaran untuk pekerja",
+                            "Memberikan pelatihan tentang manajemen keuangan untuk pekerja"
                         )
                     }
                     kategoriMarginal -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Melakukan diskusi dengan pekerja terkait kemajuan usaha",
+                            "Memberikan pelatihan dan pendampingan pada pekerja khususnya dalam bidang pemasaran produk"
                         )
                     }
                     kategoriAverage -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Mengikuti pameran produk sejenis",
+                            "Mengikuti kegiatan pelatihan dan pendampingan usaha"
                         )
                     }
                     kategoriGood -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Mengikuti kegiatan pelatihan dan pendampingan digital marketing",
+                            "Meningkatkan kegiatan promosi produk melalui media sosial"
                         )
                     }
                     kategoriExcellent -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Mengikuti pameran produk sejenis",
+                            "Mengikuti kegiatan pelatihan dan pendampingan digital marketing"
                         )
                     }
                     kategoriNotFound -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Strategi tidak ditemukan"
                         )
                     }
                     else -> {
@@ -765,50 +733,41 @@ class BalanceScoreCard {
                 when (skorKategori) {
                     kategoriPoor -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Menyusun aturan reward untuk pekerja yang mempunyai kinerja baik",
+                            "Menyusun aturan punishmen untuk pekerja yang tidak memenuhi target",
+                            "Memberikan upah lembur untuk pekerja"
                         )
                     }
                     kategoriMarginal -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Menerapkan aturan reward untuk pekerja yang mempunyai kinerja baik",
+                            "Menerapkan aturan punishmen untuk pekerja yang tidak memenuhi target",
+                            "Memberikan upah lembur untuk pekerja"
                         )
                     }
                     kategoriAverage -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Melakukan kegiatan promosi produk melalui media sosial",
+                            "Mempertahankan kualitas produk dan kemasan produk",
+                            "Meningkatkan produktivitas pegawai"
                         )
                     }
                     kategoriGood -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Mempertahankan kualitas produk dan kemasan produk",
+                            "Meningkatkan produktivitas pegawai"
                         )
                     }
                     kategoriExcellent -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Meningkatkan kegiatan promosi produk melalui media sosial",
+                            "Mempertahankan kualitas produk dan kemasan produk",
+                            "Meningkatkan produktivitas pegawai"
                         )
                     }
                     kategoriNotFound -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Strategi tidak ditemukan"
                         )
                     }
                     else -> {
@@ -820,50 +779,37 @@ class BalanceScoreCard {
                 when (skorKategori) {
                     kategoriPoor -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Memberdayakan masyarakat sekitar usaha untuk menjadi pekerja",
+                            "Memberikan peluang pekerjaan yang lebih besar untuk masyarakat sekitar usaha"
                         )
                     }
                     kategoriMarginal -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Memberdayakan masyarakat sekitar usaha untuk menjadi pekerja",
+                            "Memberikan peluang pekerjaan yang lebih besar untuk masyarakat sekitar usaha"
                         )
                     }
                     kategoriAverage -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Mengikuti kegiatan sosial di masyarakat",
+                            "Memberikan kontribusi untuk kemajuan daerah usaha",
                         )
                     }
                     kategoriGood -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Mengikuti kegiatan sosial di masyarakat",
+                            "Memberikan kontribusi untuk kemajuan daerah usaha"
                         )
                     }
                     kategoriExcellent -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Mengikuti kegiatan sosial di masyarakat",
+                            "Memberikan kontribusi untuk kemajuan daerah usaha"
                         )
                     }
                     kategoriNotFound -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Strategi tidak ditemukan"
                         )
                     }
                     else -> {
@@ -875,50 +821,35 @@ class BalanceScoreCard {
                 when (skorKategori) {
                     kategoriPoor -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Mengidentifikasi limbah produksi yang masih bisa dimanfaatkan",
+                            "Menghidentifikasi cara pengolahan limbah produksi menjadi produk yang bernilai jual"
                         )
                     }
                     kategoriMarginal -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Mengolah limbah hasil produksi",
+                            "Mengurangi jumlah produksi limbah"
                         )
                     }
                     kategoriAverage -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Meningkatkan kebersihan lingkungan",
+                            "Mengurangi jumlah produksi limbah"
                         )
                     }
                     kategoriGood -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Mengolah kembali limbah produksi menjadi produk yang bernilai jual"
                         )
                     }
                     kategoriExcellent -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Mengolah kembali limbah produksi menjadi produk yang bernilai jual"
                         )
                     }
                     kategoriNotFound -> {
                         listOf(
-                            "Ini adalah strategi satu",
-                            "Ini adalah strategi dua",
-                            "Ini adalah strategi tiga",
-                            "Ini adalah strategi empat",
+                            "Strategi tidak ditemukan"
                         )
                     }
                     else -> {

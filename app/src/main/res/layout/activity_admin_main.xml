@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".presentation.home.users.ui.home.HomeFragment">
+
+    <TextView
+        android:id="@+id/tvWelcome"
+        style="@style/heading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/layout_margin_16"
+        android:layout_marginTop="@dimen/layout_margin_16"
+        android:layout_marginEnd="@dimen/layout_margin_16"
+        android:layout_marginBottom="@dimen/layout_margin_16"
+        android:text="Riwayat"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_below="@id/tvWelcome"
+        android:id="@+id/rvHistory"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_height="match_parent"
+        tools:itemCount="2"
+        android:layout_above="@id/tvKeluar"
+        tools:listitem="@layout/item_riwayat"/>
+
+    <TextView
+        android:id="@+id/tvKeluar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/redButtonsDefault"
+        android:layout_margin="@dimen/layout_margin_16"
+        android:layout_alignParentBottom="true"
+        android:text="Keluar"/>
+
+
+</RelativeLayout>

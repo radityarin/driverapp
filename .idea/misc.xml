@@ -12,6 +12,7 @@
         <entry key="app/src/main/res/drawable/background_result_questioner.xml" value="0.1255" />
         <entry key="app/src/main/res/drawable/bg_round_top.xml" value="0.135" />
         <entry key="app/src/main/res/drawable/bg_toast.xml" value="0.2165" />
+        <entry key="app/src/main/res/drawable/ic_back.xml" value="0.1785" />
         <entry key="app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.1135" />
         <entry key="app/src/main/res/drawable/ic_baseline_history_24.xml" value="0.108" />
         <entry key="app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1135" />
@@ -33,6 +34,7 @@
         <entry key="app/src/main/res/drawable/selector_history.xml" value="0.108" />
         <entry key="app/src/main/res/drawable/selector_home.xml" value="0.108" />
         <entry key="app/src/main/res/drawable/selector_person.xml" value="0.108" />
+        <entry key="app/src/main/res/layout/activity_admin_main.xml" value="0.20925925925925926" />
         <entry key="app/src/main/res/layout/activity_landing.xml" value="0.29375" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_on_boarding.xml" value="0.22" />
@@ -45,6 +47,7 @@
         <entry key="app/src/main/res/layout/activity_perspektif_sosial.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.29375" />
         <entry key="app/src/main/res/layout/activity_result.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_user_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/dialog_confirmation_bottom.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/layout/dialog_loading.xml" value="0.23680555555555555" />

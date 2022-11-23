@@ -7,11 +7,23 @@
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.KeberlanjutanUMKMBSC">
+        <activity
+            android:name=".presentation.home.admin.AdminMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.splash.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".presentation.home.users.ui.home.questioner.result.ResultActivity"
             android:exported="false" />
@@ -57,13 +69,7 @@
         <activity
             android:name=".presentation.onboarding.OnBoardingActivity"
             android:exported="true"
-            android:theme="@style/Theme.KeberlanjutanUMKMBSCWhite">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.KeberlanjutanUMKMBSCWhite" />
         <activity
             android:name=".presentation.landing.LandingActivity"
             android:exported="true"
