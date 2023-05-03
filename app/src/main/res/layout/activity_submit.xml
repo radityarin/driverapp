@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.login.LoginActivity">
+
+    <TextView
+        android:id="@+id/tvBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/layout_margin_16"
+        android:background="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv2"
+        style="@style/heading"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/layout_margin_16"
+        android:layout_marginTop="@dimen/layout_margin_8"
+        android:text="Submit Data"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvBack" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/llBottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv3"
+                style="@style/medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_32"
+                android:text="Plat nomor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv2" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etPlatNomor"
+                style="@style/myEditText"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_4"
+                android:hint=""
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv3" />
+
+            <TextView
+                android:id="@+id/tv5"
+                style="@style/medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_16"
+                android:text="Deskripsi"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etNoHP" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etDeskripsi"
+                style="@style/myEditText"
+                android:layout_width="match_parent"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:gravity="start"
+                android:layout_marginTop="@dimen/layout_margin_4"
+                android:lines="8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv4" />
+
+            <TextView
+                android:id="@+id/tv6"
+                style="@style/medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_16"
+                android:text="Foto"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etNoHP" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/btnAddImage"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_4"
+                android:background="@drawable/ic_add_image"
+                android:orientation="horizontal"
+                android:padding="@dimen/layout_margin_4" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/llBottom"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="@dimen/layout_margin_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tvDisabled"
+            style="@style/primaryButtonsDisabled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit Data" />
+
+        <TextView
+            android:id="@+id/tvEnabled"
+            style="@style/primaryButtonsDefault"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit Data"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

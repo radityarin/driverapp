@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/layout_margin_16"
         android:layout_marginTop="@dimen/layout_margin_16"
-        android:text="Buat kata sandi"
+        android:text="Masukkan kata sandi"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etNoHP" />
 

@@ -9,5 +9,5 @@ dependencyResolutionManagement {
         }
     }
 }
-rootProject.name = "Keberlanjutan UMKM BSC"
+rootProject.name = "Driver App"
 include ':app'

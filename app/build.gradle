@@ -11,7 +11,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.ftp.keberlanjutanumkmbsc"
+        applicationId "com.project.driverapp"
         minSdk 21
         targetSdk 31
         versionCode 4
@@ -119,6 +119,8 @@ dependencies {
     implementation "com.airbnb.android:lottie:3.6.1"
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0-alpha'
 
+    implementation 'com.github.esafirm:android-image-picker:3.0.0-beta1'
+
     // RV Indicator
     implementation "com.kingfisherphuoc:easy-recyclerview-indicator:$recycler_indicator"
 
@@ -132,6 +134,8 @@ dependencies {
     kapt "androidx.room:room-compiler:2.2.1"
 
     implementation("app.futured.donut:donut:2.1.0")
+
+    implementation 'com.github.bccfilkom:gridmenu:1.0.0'
 
     implementation("com.tbuonomo:dotsindicator:4.3")
 

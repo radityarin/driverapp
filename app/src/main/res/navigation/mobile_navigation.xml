@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.ftp.keberlanjutanumkmbsc.presentation.home.users.ui.home.HomeFragment"
+        android:name="com.project.driverapp.presentation.home.users.ui.home.HomeFragment"
         android:label="Beranda"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_history"
-        android:name="com.ftp.keberlanjutanumkmbsc.presentation.home.users.ui.history.HistoryFragment"
+        android:name="com.project.driverapp.presentation.home.users.ui.history.HistoryFragment"
         android:label="Riwayat"
         tools:layout="@layout/fragment_history" />
 
     <fragment
         android:id="@+id/navigation_account"
-        android:name="com.ftp.keberlanjutanumkmbsc.presentation.home.users.ui.account.AccountFragment"
+        android:name="com.project.driverapp.presentation.home.users.ui.account.AccountFragment"
         android:label="Akun"
         tools:layout="@layout/fragment_account" />
 </navigation>
