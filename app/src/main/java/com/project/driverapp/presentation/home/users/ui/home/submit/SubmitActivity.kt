@@ -35,6 +35,9 @@ class SubmitActivity : BaseActivity() {
             tvEnabled.setOnClickListener {
                 finish()
             }
+            tvBack.setOnClickListener {
+                onBackPressed()
+            }
         }
     }
 

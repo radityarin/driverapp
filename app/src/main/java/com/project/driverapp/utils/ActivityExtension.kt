@@ -7,6 +7,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.Window
 import android.view.WindowManager
+import androidx.fragment.app.Fragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.project.driverapp.R
 import com.project.driverapp.data.pref.ProfilePrefs
@@ -15,6 +16,7 @@ import com.project.driverapp.presentation.home.users.ui.home.submit.SubmitActivi
 import com.project.driverapp.presentation.landing.LandingActivity
 import com.project.driverapp.presentation.login.LoginActivity
 import com.project.driverapp.presentation.register.RegisterActivity
+import com.project.driverapp.presentation.register.dialog.AcceptJobDialog
 import com.project.driverapp.presentation.register.dialog.RegisterResultDialog
 
 fun Activity.goToLanding() {
@@ -85,6 +87,17 @@ fun showResultDialog(isSuccess: Boolean) {
             R.style.BaseBottomSheetDialogTheme
         )
         show(childFragmentManager, RegisterResultDialog.TAG)
+    }
+}
+
+
+fun Fragment.showAcceptJobDialog() {
+    AcceptJobDialog().apply {
+        setStyle(
+            BottomSheetDialogFragment.STYLE_NORMAL,
+            R.style.BaseBottomSheetDialogTheme
+        )
+        show(this@showAcceptJobDialog.childFragmentManager, RegisterResultDialog.TAG)
     }
 }
 

@@ -11,6 +11,7 @@ import com.project.driverapp.data.logic.ToDo
 import com.project.driverapp.data.logic.ToDoStatus
 import com.project.driverapp.databinding.FragmentHomeBinding
 import com.project.driverapp.utils.goToSubmitActivity
+import com.project.driverapp.utils.showAcceptJobDialog
 import com.project.driverapp.utils.showCustomToast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -83,6 +84,7 @@ class HomeFragment : Fragment() {
                 onItemClick = {
                     when (it.status) {
                         ToDoStatus.ACTIVE -> {
+                            showAcceptJobDialog()
                             itemToDoAdapter.updateStatus(it.id, ToDoStatus.ONGOING)
                         }
                         ToDoStatus.ONGOING -> {
