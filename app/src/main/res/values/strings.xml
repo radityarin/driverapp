@@ -5,6 +5,7 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="finish_job">Selesaikan perjalanan sebelumnya</string>
+    <string name="job_finish">Perjalanan sudah selesai</string>
 
 
     <string-array name="jenis_kelamin">

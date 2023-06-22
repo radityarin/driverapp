@@ -122,6 +122,9 @@ class HomeFragment : Fragment() {
                         ToDoStatus.ONGOING -> {
                             activity?.goToSubmitActivity()
                         }
+                        ToDoStatus.FINISH -> {
+                            showCustomToast(getString(R.string.job_finish))
+                        }
                         else -> {
                             showCustomToast(getString(R.string.finish_job))
                         }
