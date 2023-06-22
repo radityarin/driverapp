@@ -2,15 +2,14 @@ package com.project.driverapp.presentation.home.users.ui.home.submit
 
 import android.content.pm.PackageManager
 import android.view.View
-import com.esafirm.imagepicker.features.ImagePickerConfig
 import com.esafirm.imagepicker.features.ImagePickerLauncher
+import com.esafirm.imagepicker.features.cameraonly.CameraOnlyConfig
 import com.esafirm.imagepicker.features.registerImagePicker
 import com.project.driverapp.databinding.ActivitySubmitBinding
 import com.project.driverapp.presentation.base.BaseActivity
 import com.project.driverapp.utils.helper.PermissionUtils
 import com.project.driverapp.utils.helper.PermissionUtils.checkCameraAndStoragePermission
 import com.project.driverapp.utils.setEditTextAndButtonListener
-
 
 class SubmitActivity : BaseActivity() {
 
@@ -76,9 +75,7 @@ class SubmitActivity : BaseActivity() {
     }
 
     private fun launch() {
-        val imagePickerConfig = ImagePickerConfig()
-        imagePickerConfig.isFolderMode = true
-        imagePickerLauncher.launch(imagePickerConfig)
+        imagePickerLauncher.launch(CameraOnlyConfig())
     }
 
 

@@ -61,6 +61,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv3" />
 
+
             <TextView
                 android:id="@+id/tv5"
                 style="@style/medium"
@@ -77,8 +78,8 @@
                 style="@style/myEditText"
                 android:layout_width="match_parent"
                 android:layout_marginHorizontal="@dimen/layout_margin_16"
-                android:gravity="start"
                 android:layout_marginTop="@dimen/layout_margin_4"
+                android:gravity="start"
                 android:lines="8"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -97,13 +98,24 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/btnAddImage"
-                android:layout_width="match_parent"
-                android:layout_height="350dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/layout_margin_16"
                 android:layout_marginTop="@dimen/layout_margin_4"
                 android:background="@drawable/ic_add_image"
                 android:orientation="horizontal"
                 android:padding="@dimen/layout_margin_4" />
+
+            <CheckBox
+                android:id="@+id/tv31"
+                style="@style/medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin_16"
+                android:layout_marginTop="@dimen/layout_margin_16"
+                android:text="Apakah sudah selesai?"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv2" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

@@ -935,3 +935,16 @@ data class Strategi(
     var number: String,
     var strategi: String
 )
+
+data class ToDo(
+    var id: Int,
+    var from: String,
+    var destination: String,
+    var startDate: String,
+    var endDate: String,
+    var status: ToDoStatus
+)
+
+enum class ToDoStatus {
+    ACTIVE, ONGOING, NON_ACTIVE, FINISH
+}

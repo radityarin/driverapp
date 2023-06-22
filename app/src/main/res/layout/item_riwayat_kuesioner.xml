@@ -578,7 +578,7 @@
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:itemCount="2"
-                tools:listitem="@layout/item_strategi"/>
+                tools:listitem="@layout/item_to_do_list"/>
 
             <TextView
                 style="@style/semibold"
@@ -596,7 +596,7 @@
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:itemCount="2"
-                tools:listitem="@layout/item_strategi"/>
+                tools:listitem="@layout/item_to_do_list"/>
 
             <TextView
                 style="@style/semibold"
@@ -614,7 +614,7 @@
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:itemCount="2"
-                tools:listitem="@layout/item_strategi"/>
+                tools:listitem="@layout/item_to_do_list"/>
 
             <TextView
                 style="@style/semibold"
@@ -632,7 +632,7 @@
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:itemCount="2"
-                tools:listitem="@layout/item_strategi"/>
+                tools:listitem="@layout/item_to_do_list"/>
 
             <TextView
                 style="@style/semibold"
@@ -650,7 +650,7 @@
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:itemCount="2"
-                tools:listitem="@layout/item_strategi"/>
+                tools:listitem="@layout/item_to_do_list"/>
 
             <TextView
                 style="@style/semibold"
@@ -668,7 +668,7 @@
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:itemCount="2"
-                tools:listitem="@layout/item_strategi"/>
+                tools:listitem="@layout/item_to_do_list"/>
 
         </LinearLayout>
 

@@ -8,8 +8,8 @@
 
     <item
         android:id="@+id/navigation_history"
-        android:icon="@drawable/selector_history"
-        android:title="Riwayat" />
+        android:icon="@drawable/selector_notification"
+        android:title="Notifikasi" />
 
     <item
         android:id="@+id/navigation_account"
