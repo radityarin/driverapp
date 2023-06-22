@@ -73,6 +73,38 @@ class HomeFragment : Fragment() {
                     startDate = "17-03-2023 10:00 AM",
                     endDate = "17-03-2023 13:00 PM",
                     status = ToDoStatus.NON_ACTIVE
+                ),
+                ToDo(
+                    id = 5,
+                    from = "Bandung",
+                    destination = "Bekasi",
+                    startDate = "17-03-2023 10:00 AM",
+                    endDate = "17-03-2023 13:00 PM",
+                    status = ToDoStatus.NON_ACTIVE
+                ),
+                ToDo(
+                    id = 6,
+                    from = "Tegal",
+                    destination = "Semarang",
+                    startDate = "17-03-2023 10:00 AM",
+                    endDate = "17-03-2023 13:00 PM",
+                    status = ToDoStatus.NON_ACTIVE
+                ),
+                ToDo(
+                    id = 7,
+                    from = "Bandung",
+                    destination = "Purwakarta",
+                    startDate = "17-03-2023 10:00 AM",
+                    endDate = "17-03-2023 13:00 PM",
+                    status = ToDoStatus.NON_ACTIVE
+                ),
+                ToDo(
+                    id = 8,
+                    from = "Jepara",
+                    destination = "Banten",
+                    startDate = "17-03-2023 10:00 AM",
+                    endDate = "17-03-2023 23:00 PM",
+                    status = ToDoStatus.NON_ACTIVE
                 )
             )
         )
